@@ -7,5 +7,8 @@ namespace thelibrary.Models
         [Key]
         public int Id { get; set; }
         public string position { get; set; }
+
+        //relationship
+        public ICollection<SeatReservation> SeatReservation { get; set; }
     }
 }

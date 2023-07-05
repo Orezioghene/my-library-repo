@@ -11,12 +11,28 @@ namespace thelibrary.Models
         public string Title { get; set; }
         public int Pages { get; set; }
         public string BookSummary { get; set; }
-        
-        [ForeignKey("Category")]
-        public int CategoryId { get; set; }
+        public string ActualBook { get; set; }
 
-        [ForeignKey("Author")]
-        public int AuthorId { get; set; }
+
+        [ForeignKey("Category")]
+        //category
+        public int CategoryId { get; set; }
+       
+        public Category Category { get; set; }
+
+        //recommendations
+
+        public ICollection<Recommendation> Recommendations { get; set; }
+
+        //Author
+
+        public ICollection<BookAuthor> BookAuthors { get; set; }
+
+        //Borrow book
+
+        public ICollection<BorrowBook> BookBorrowers { get; set; }
+
+
 
 
 

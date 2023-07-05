@@ -6,11 +6,18 @@ namespace thelibrary.Models
     {
         public int Id { get; set; }
 
-        [ForeignKey("Author")]
+        //Author
         public int AuthorId { get; set; }
+        [ForeignKey("AuthorId")]
 
-        [ForeignKey("Book")]
+        public Author Author { get; set; }
+
+        //Book
         public int BookId { get; set; }
+        [ForeignKey("BookId")]
+
+        public Book Book { get; set; }
+       
 
     }
 }

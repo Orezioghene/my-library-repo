@@ -13,5 +13,9 @@ namespace thelibrary.Models
         public usertype UserType { get; set; }
         public string? Matric_No { get; set; }
 
+        //relationships
+        public ICollection<Recommendation> Recommendations { get; set; }
+        public ICollection<SeatReservation> SeatReservation { get; set; }
+        public ICollection<BorrowBook> BookBorrowers { get; set; }
     }
 }

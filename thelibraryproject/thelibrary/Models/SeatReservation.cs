@@ -8,15 +8,24 @@ namespace thelibrary.Models
     {
         [Key]
         public int id { get; set; }
-
-        [ForeignKey("Seat")]
-        public int SeatId { get; set; }
-
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-
         public stat SeatStatus { get; set; }
-        public DateTime On { get; set; } = DateTime.Now;
+        public DateTime Begins { get; set; } = DateTime.Now;
+        public DateTime ExpiresOn { get; set; } 
+
+        //Seat
+        public int SeatId { get; set; }
+        [ForeignKey("SeatId")]
+
+        public Seat Seat { get; set; }
+
+        //user
+        public int UserId { get; set; }
+        [ForeignKey("UserId")]
+
+        public User User { get; set; }
+       
+
+       
     }
 
 

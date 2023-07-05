@@ -6,12 +6,15 @@ namespace thelibrary.Models
     public class Author
     {
         [Key]
-        public string Id { get; set; }
-
+        public int Id { get; set; }
+        
+        public string PictureURL { get; set; }
         public string Name { get; set; }
         public string? Biography { get; set; }
         public sex Sex { get; set; }
 
+        //Relationship
+        public ICollection<BookAuthor> BookAuthors { get; set; }
 
     }
 }
