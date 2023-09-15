@@ -1,10 +1,11 @@
 ﻿using thelibrary.Models;
+using thelibrary.ViewModel;
 
 namespace thelibrary.Repository
 {
     public interface ICategoryRepository
     {
-        Task<IEnumerable<Category>> GetAllCategories();
+        Task<IEnumerable<CategoryViewModel>> GetAllCategories();
 
         Task<Category> GetCategiryByName(string name);
         Task<Category> GetCategoryById(int Id);

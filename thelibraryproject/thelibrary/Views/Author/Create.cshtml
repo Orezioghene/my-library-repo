@@ -1,16 +1,17 @@
 ﻿@using thelibrary.Data.enums;
+@using thelibrary.ViewModel;
 @model AuthorViewModel
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
-<form method="post" asp-action="Create">
-    <div class="form-group">
-        <label asp-for="PictureURL">Picture Link</label>
-        <input asp-for="PictureURL" class="form-control" placeholder="PictureURL">
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    @*<div class="form-group">
+        <label asp-for="PictureURL">Picture</label>
+        <input asp-for="PictureURL" type="file" class="form-control" placeholder="PictureURL">
         <span asp-validation-for="PictureURL" class="text-danger"></span>
-    </div>
+    </div>*@
     <div class="form-group">
         <label asp-for="Name">Name</label>
         <input asp-for="Name" class="form-control" placeholder="Name">

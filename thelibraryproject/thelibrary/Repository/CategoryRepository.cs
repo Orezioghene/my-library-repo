@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using thelibrary.Data;
+using thelibrary.Map;
 using thelibrary.Models;
+using thelibrary.ViewModel;
 
 namespace thelibrary.Repository
 {
@@ -15,10 +18,12 @@ namespace thelibrary.Repository
         }
         public bool Add(CategoryViewModel category)
         {
+            
             var newCategory = new Category()
             {
                 Name = category.Name,
             };
+
             _dbContext.Add(newCategory);
             return Save();
         }
@@ -29,9 +34,11 @@ namespace thelibrary.Repository
             return Save();
         }
 
-        public async Task<IEnumerable<Category>> GetAllCategories()
+        public async Task<IEnumerable<CategoryViewModel>> GetAllCategories()
         {
-            return await _dbContext.Categories.ToListAsync();
+
+            var getCategory = await _dbContext.Categories.ToListAsync();
+            return getCategory.Select(x => x.Map());
         }
 
         public async Task<Category> GetCategiryByName(string name)
@@ -41,7 +48,7 @@ namespace thelibrary.Repository
 
         public async Task<Category> GetCategoryById(int Id)
         {
-            return await _dbContext.Categories.FirstOrDefaultAsync(x => x.Id == Id);
+            return await _dbContext.Categories.FirstOrDefaultAsync(x => x.CategoryId == Id);
         }
 
         public bool Save()

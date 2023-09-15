@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using thelibrary.Data;
+using thelibrary.Map;
 using thelibrary.Models;
+using thelibrary.ViewModel;
 
 namespace thelibrary.Repository
 {
@@ -18,43 +20,45 @@ namespace thelibrary.Repository
 
         public bool Add(Book book)
         {
-            //var newBook = new Book()
-            //{
-            //    Title = book.Title,
-            //    Pages = book.Pages,
-            //    BookSummary = book.BookSummary,
-            //    Category = new Category()
-            //    {
-            //         Name = book.Category.Name,
-            //    }
-            //};
             _dbContext.Add(book);
             return Save();
         }
 
-        //public bool Delete(Book book)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task<Book> GetBookByAuthor(string Author)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task<Book> GetBookByCategory(string category)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        public async Task<Book> GetBookById(int Id)
+        public bool Delete(Book book)
         {
-            return await _dbContext.Books.FirstOrDefaultAsync(x => x.Id == Id);
+            _dbContext.Remove(book);
+            return Save();
         }
 
-        public  async Task<IEnumerable<Book>> GetBooks()
+       
+        
+        public async Task<Book> GetBookById(int Id)
         {
-            return await _dbContext.Books.ToListAsync();
+           return await _dbContext.Books.FirstOrDefaultAsync(x => x.Id == Id);
+            
+        }
+
+        public async Task<Book> GetBookByIdNoTracking(int Id)
+        {
+            var getbook = await _dbContext.Books.AsNoTracking().FirstOrDefaultAsync(x => x.Id == Id);
+            return getbook;
+        }
+
+
+        public async Task<Book> GetBookByName(string Title)
+        {
+            return await _dbContext.Books.FirstOrDefaultAsync(x => x.Title == Title);
+        }
+
+        public IEnumerable<Book> GetBooks()
+        {
+
+            return _dbContext.Books.ToList();
+            //var data = (from book in _dbContext.Books join category in _dbContext.Categories
+            //            on book.CategoryId equals category.Id
+            //            select new Book { Id = book.Id , CategoryId = book.CategoryId,
+            //            Title= book.Title, BookSummary = book.BookSummary, ActualBook= book.ActualBook, Pages = book.Pages}).ToList();
+            //return data;
         }
 
         public bool Save()
@@ -63,9 +67,12 @@ namespace thelibrary.Repository
             return saved > 0 ? true : false;
         }
 
-        //public bool Update(Book book)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public bool Update(Book book)
+        {
+            _dbContext.Update(book);
+            return Save();
+        }
+
+       
     }
 }

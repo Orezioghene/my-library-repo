@@ -15,14 +15,11 @@ namespace thelibrary.Models
 
         //book
         public int BookId { get; set; }
-        [ForeignKey("BookId")]
         public Book Book { get; set; }
 
         //user
-        public int UserId { get; set; }
-        [ForeignKey("UserId")]
-
-        public User User { get; set; }
+        public Guid UserId { get; set; }
+        public Users User { get; set; }
         
        
 

@@ -1,4 +1,5 @@
 ﻿using thelibrary.Models;
+using thelibrary.ViewModel;
 
 namespace thelibrary.Repository
 {
@@ -10,7 +11,7 @@ namespace thelibrary.Repository
         Task<Author> GetAuthorByName(string name);
         Task<Author> GetById(int Id);
 
-        bool Add(AuthorViewModel author);
+        bool Add(Author author);
         bool Delete(Author author);
         bool Update(Author author);
         bool Save();

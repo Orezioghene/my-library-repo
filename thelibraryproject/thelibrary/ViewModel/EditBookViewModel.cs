@@ -1,21 +1,26 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using thelibrary.ViewModel;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace thelibrary.Models
 {
     public class EditBookViewModel
     {
-        [Key]
+        //[Key]
         public int Id { get; set; }
 
         public string Title { get; set; }
         public int Pages { get; set; }
         public string BookSummary { get; set; }
-        public string ActualBook { get; set; }
-        [ForeignKey("Category")]
-        //category
+        public IFormFile ActualBook { get; set; }
+        public string? URL { get; set; }
+       
         public int CategoryId { get; set; }
-        public CategoryViewModel Category { get; set; }
+        
 
+
+
+       
     }
 }

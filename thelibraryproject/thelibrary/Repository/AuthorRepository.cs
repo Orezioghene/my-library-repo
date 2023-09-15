@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using thelibrary.Data;
 using thelibrary.Models;
+using thelibrary.ViewModel;
 
 namespace thelibrary.Repository
 {
@@ -17,16 +18,16 @@ namespace thelibrary.Repository
            
         }
 
-        public bool Add(AuthorViewModel author)
+        public bool Add(Author author)
         {
-            var newAuthor = new Author()
-            {
-                Name = author.Name,
-                Biography = author.Biography,
-                PictureURL = author.PictureURL,
-                Sex = author.Sex,
-            };
-            _dbContext.Add(newAuthor);
+            //var newAuthor = new Author()
+            //{
+            //    Name = author.Name,
+            //    Biography = author.Biography,
+            //    PictureURL = author.URL,
+            //    Sex = author.Sex,
+            //};
+            _dbContext.Add(author);
             return Save();
         }
 

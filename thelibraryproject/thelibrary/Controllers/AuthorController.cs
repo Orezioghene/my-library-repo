@@ -2,6 +2,8 @@
 using thelibrary.Data;
 using thelibrary.Models;
 using thelibrary.Repository;
+using thelibrary.Services;
+using thelibrary.ViewModel;
 
 namespace thelibrary.Controllers
 {
@@ -9,21 +11,24 @@ namespace thelibrary.Controllers
     {
         private readonly LibraryDbContext _dbContext;
         private readonly IAuthorRepository _authorRepository;
-        public AuthorController(LibraryDbContext dbContext, IAuthorRepository authorRepository )
+        private readonly IPhotoService _photoService;
+        public AuthorController(LibraryDbContext dbContext, IAuthorRepository authorRepository, IPhotoService photoService)
         {
-            _dbContext = dbContext;
+            this._dbContext = dbContext;
             this._authorRepository = authorRepository;
+            this._photoService = photoService;
         }
 
         public async Task<IActionResult> Index()
         {
             var data = await _authorRepository.GetAuthors();
-            return View();
+            return View(data);
         }
 
         public async Task<IActionResult> Create()
         {
-            return View();
+            var model = new AuthorViewModel();
+            return View(model);
         }
 
         [HttpPost]
@@ -31,10 +36,24 @@ namespace thelibrary.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ModelState.AddModelError("", "Upload Failed");
                 return View(author);
             }
 
-            _authorRepository.Add(author);
+            //var result = await _photoService.AddPhotoAsync(author.PictureURL);
+
+            var newAuthor = new Author()
+            {
+               Biography = author.Biography,
+               Name = author.Name,
+               Sex = author.Sex,
+               //PictureURL = result.Url.ToString(),
+               Id = author.Id
+                
+            };
+            _authorRepository.Add(newAuthor);
+
+          
             return RedirectToAction("Index");
 
         }

@@ -9,16 +9,12 @@ namespace thelibrary.Models
         public string UserReview { get; set; }
 
         //Book
-        public int BookId { get; set; }
-        [ForeignKey("BookId")]
-
+        public int BookId { get; set; }        
         public Book Book { get; set; }
 
         //User
-        public int UserId { get; set; }
-        [ForeignKey("UserId")]
-
-        public User User { get; set; }
+        public Guid UserId { get; set; }        
+        public Users User { get; set; }
        
 
 

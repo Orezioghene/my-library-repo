@@ -1,0 +1,46 @@
+﻿@using thelibrary.ViewModel;
+@using thelibrary.Data.enums;
+@model RegisterViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form method="post" asp-action="Register" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label asp-for="Name">Name </label>
+        <input asp-for="Name" class="form-control" placeholder="Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+     <div class="form-group">
+        <label asp-for="Department">Department </label>
+        <input asp-for="Department" class="form-control" placeholder="Matric Number">
+        <span asp-validation-for="Department" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserType">UserType </label>
+        <select asp-for="UserType" asp-items="@Html.GetEnumSelectList<usertype>()" class="form-control" placeholder="UserType">
+            <option>--Select--</option>
+        </select>
+        <span asp-validation-for="UserType" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Matric_No">Matric_No</label>
+        <input asp-for="Matric_No" class="form-control" placeholder="Matric_No">
+        <span asp-validation-for="Matric_No" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" class="form-control" placeholder="Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" placeholder="Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+       

@@ -1,0 +1,22 @@
+﻿@using thelibrary.ViewModel;
+@model LoginViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form method="post" asp-action="Login" enctype="multipart/form-data">
+    
+    <div class="form-group">
+        <label asp-for="Username">Matric Number or Email </label>
+        <input asp-for="Username" class="form-control" placeholder="Matric Number">
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" class="form-control" placeholder="Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

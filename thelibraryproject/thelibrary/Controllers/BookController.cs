@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using thelibrary.Data;
+using thelibrary.Map;
 using thelibrary.Models;
 using thelibrary.Repository;
 using thelibrary.Services;
+using thelibrary.ViewModel;
 
 namespace thelibrary.Controllers
 {
@@ -11,57 +14,83 @@ namespace thelibrary.Controllers
     {
         private readonly LibraryDbContext _dbContext;
         private readonly IBookRepository _bookRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly IPhotoService _photoService;
-        
-        public BookController(LibraryDbContext dbContext, IBookRepository bookRepository,IPhotoService photoService)
+        private readonly IAuthorRepository _authorRepository;
+
+        public BookController(LibraryDbContext dbContext, IAuthorRepository authorRepository, IBookRepository bookRepository, IPhotoService photoService, ICategoryRepository categoryRepository)
         {
-            _dbContext = dbContext;
+            this._dbContext = dbContext;
             this._bookRepository = bookRepository;
             this._photoService = photoService;
+            this._categoryRepository = categoryRepository;
+            this._authorRepository = authorRepository;
+
         }
 
         public async Task<IActionResult> Index()
         {
-            var data = await _bookRepository.GetBooks();
+            var data =  _bookRepository.GetBooks();
             return View(data);
         }
+        public async Task<IActionResult> Detail(int Id)
+        {
+            var getBook = await _bookRepository.GetBookById(Id);
+            return View(getBook);
+        }       
 
         public async Task<IActionResult> Create()
         {
-            return View();
+            var model =  new BookViewModel();
+            
+            var categories = await _categoryRepository.GetAllCategories();
+            var authors = await _authorRepository.GetAuthors();
+            ViewBag.category = new SelectList(categories.ToList(), "Id", "Name");
+            ViewBag.author = new MultiSelectList(authors.ToList(), "Id", "Name");
+
+
+            return View(model);
         }
 
-        //public IActionResult Detail(int Id)
-        //{
 
-        //}
 
         [HttpPost]
         public async Task<IActionResult> Create(BookViewModel  model) 
         {
-            if (ModelState.IsValid)
+           
+            if (!ModelState.IsValid)
             {
-                var result = await _photoService.AddPhotoAsync(model.ActualBook);
-                var newBook = new Book()
-                {
-                    Title = model.Title,
-                    Pages = model.Pages,
-                    BookSummary = model.BookSummary,
-                    ActualBook = result.Url.ToString(),
-                    Category = new Category()
-                    {
-                        Name = model.Category.Name,
-                    }
-                };
-                _bookRepository.Add(newBook);
-                return RedirectToAction("Index");
+                ModelState.AddModelError("", "Upload Failed"); 
+                return View(model);
             }
-            else
-            {
-                ModelState.AddModelError("", "Upload Failed");
-            }
+            
+            var result = await _photoService.AddPhotoAsync(model.ActualBook);
 
-            return View(model);          
+            var newBook = new Book()
+            {
+                Title = model.Title,
+                Pages = model.Pages,
+                BookSummary = model.BookSummary,
+                ActualBook = result.Url.ToString(),
+                CategoryId = model.CategoryId,
+                
+                
+            };
+            _bookRepository.Add(newBook);
+            //_dbContext.SaveChanges();
+
+            foreach (var id in model.AuthorId)
+            {
+                var _book_author = new BookAuthor()
+                {
+                    BookId = newBook.Id,
+                    AuthorId = id
+                };
+                _dbContext.BookAuthors.Add(_book_author);
+                _dbContext.SaveChanges();
+            }
+            return RedirectToAction("Index");
+                                        
             
 
         }
@@ -70,19 +99,57 @@ namespace thelibrary.Controllers
         {
             var getBook = await _bookRepository.GetBookById(Id);
             if (getBook == null) return View("Error");
-            var bookVM = new EditBookViewModel
+            var categories = await _categoryRepository.GetAllCategories();
+            ViewBag.category = new SelectList(categories.ToList(), "Id", "Name");
+            var bookVM = getBook.Mapper();            
+            return View(bookVM);
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditBookViewModel model, int Id)
+        {
+            if (!ModelState.IsValid)
             {
-                Title = getBook.Title,
-                BookSummary = getBook.BookSummary,
-                Pages = getBook.Pages,
-                ActualBook = getBook.ActualBook,
-                Category = new CategoryViewModel()
+                ModelState.AddModelError("", "Edit Failed");
+                return View("Edit", model);
+            }
+            else
+            {
+                var book = await _bookRepository.GetBookById(Id);
+                if (book != null)
                 {
-                    Name = getBook.Category.Name,
+                    try
+                    {
+
+                        await _photoService.DeletePhotoAsync(book.ActualBook);
+                    }
+                    catch (Exception ex)
+                    {
+                        ModelState.AddModelError("", "Couldn't Delete photos");
+                        return View(model);
+                    }
+                    var photoresult = await _photoService.AddPhotoAsync(model.ActualBook);
+
+                    book.Id = model.Id;
+                    book.Title = model.Title;
+                    book.Pages = model.Pages;
+                    book.BookSummary = model.BookSummary;
+                    book.ActualBook = photoresult.Url.ToString();
+                    book.CategoryId = model.CategoryId;
+                    //book.CatgoryList = model.CatgoryList;                    
+
+                    _bookRepository.Update(book);
+
+                  
+                    return RedirectToAction("Index");
+                    }
+                else
+                {
+                    return View(model);
                 }
 
-            };
-            return View(bookVM);
+            }
+            
 
         }
     }

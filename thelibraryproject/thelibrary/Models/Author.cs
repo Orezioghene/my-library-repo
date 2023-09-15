@@ -8,7 +8,7 @@ namespace thelibrary.Models
         [Key]
         public int Id { get; set; }
         
-        public string PictureURL { get; set; }
+        //public string PictureURL { get; set; }
         public string Name { get; set; }
         public string? Biography { get; set; }
         public sex Sex { get; set; }

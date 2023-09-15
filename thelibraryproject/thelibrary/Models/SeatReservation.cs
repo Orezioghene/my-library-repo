@@ -7,22 +7,20 @@ namespace thelibrary.Models
     public class SeatReservation
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
         public stat SeatStatus { get; set; }
+        public string position { get; set; }
         public DateTime Begins { get; set; } = DateTime.Now;
         public DateTime ExpiresOn { get; set; } 
 
         //Seat
-        public int SeatId { get; set; }
-        [ForeignKey("SeatId")]
+        public int SeatId { get; set; }    
 
         public Seat Seat { get; set; }
 
         //user
-        public int UserId { get; set; }
-        [ForeignKey("UserId")]
-
-        public User User { get; set; }
+        public Guid UserId { get; set; }
+        public Users User { get; set; }
        
 
        
