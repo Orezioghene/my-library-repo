@@ -1,0 +1,10 @@
+﻿@model BorrowBook
+
+<h1>Borrow Book</h1>
+@*<p>Title: @Model.Book.Title</p>*@
+@*<p>Author: @Model.Author</p>*@
+<p>Due Date:Due Date: @DateTime.Now.AddDays(7).ToShortDateString()</p>
+
+<form asp-action="Borrow" asp-route-bookId="@Model.BookId">
+    <input type="submit" value="Borrow" />
+</form>

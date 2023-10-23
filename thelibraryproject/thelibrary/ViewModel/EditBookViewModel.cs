@@ -17,10 +17,11 @@ namespace thelibrary.Models
         public string? URL { get; set; }
        
         public int CategoryId { get; set; }
-        
+        public List<int>? AuthorId { get; set; }
 
 
 
-       
+
+
     }
 }

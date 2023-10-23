@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Net;
 using thelibrary.Data;
 using thelibrary.Map;
 using thelibrary.Models;
@@ -34,7 +35,20 @@ namespace thelibrary.Repository
         
         public async Task<Book> GetBookById(int Id)
         {
-           return await _dbContext.Books.FirstOrDefaultAsync(x => x.Id == Id);
+            var book = await _dbContext.Books
+        .Include(b => b.Category)        
+        .Include(b => b.Recommendations) // Include the related reviews       
+        .FirstOrDefaultAsync(b => b.Id == Id);
+
+         return book;
+
+            //if (book == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return View(book);
+            //return await _dbContext.Books.FirstOrDefaultAsync(x => x.Id == Id);
             
         }
 

@@ -66,7 +66,18 @@ namespace thelibrary.Controllers
             if(result == null) 
                 return StatusCode(StatusCodes.Status400BadRequest, new ResponseModel { Error = "Login Failed", IsSuccessful = false });
 
-            return RedirectToAction("Index", "Home");
+            else
+            {
+                if (model.Username == "eyiowuawibolutife@gmail.com")
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else if (User.IsInRole("User"))
+                {
+                    return RedirectToAction("Index", "Book");
+                }
+                return RedirectToAction("Index", "Book");
+            }
         }        
     }
 }

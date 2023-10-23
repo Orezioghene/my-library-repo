@@ -27,6 +27,15 @@
         <span asp-validation-for="BookSummary" class="text-danger"></span>
     </div>
     <div class="form-group">
+        <label asp-for="AuthorId" class="control-label">Author</label>
+        <br />
+        <p>
+            @* @Html.DropDownList("AuthorId",ViewBag.Author as SelectList)               *@
+            @Html.ListBoxFor(model => model.AuthorId, (MultiSelectList)ViewBag.author, new { @class = "form-control" })
+
+        </p>
+    </div>
+    <div class="form-group">
         <label asp-for="CategoryId" class="control-label">Category</label>
         <br />
         <p>

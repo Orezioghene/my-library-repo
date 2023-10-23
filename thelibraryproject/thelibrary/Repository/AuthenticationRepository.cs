@@ -63,7 +63,6 @@ namespace thelibrary.Repository
 
         private async Task<AuthenticationToken> CreateAuthenticationToken(Users existUser)
         {
-
             var Audiences = _configuration["JWT:ValidAudience"];
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]);

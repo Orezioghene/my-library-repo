@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BookReservation>
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        @*<th>Author</th>*@
+        <th>User</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var reservation in Model)
+    {
+        <tr>
+            <td> @reservation.Book.Title</td>
+            <td>@reservation.User.UserName</td>
+            @*<td>@book.Author</td>*@
+            
+            <td><a href="@Url.Action("Borrow", "Book", new { bookId = reservation.BookId})" class="btn btn-primary">Borrow</a></td>
+            <td><a href="@Url.Action("Return", "Book", new { bookId = reservation.BookId})" class="btn btn-primary">Return</a></td>
+
+            
+
+            
+        </tr>
+    }
+</table>

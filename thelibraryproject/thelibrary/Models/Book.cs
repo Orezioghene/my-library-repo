@@ -13,32 +13,13 @@ namespace thelibrary.Models
         public string Title { get; set; }
         public int Pages { get; set; }
         public string BookSummary { get; set; }
-        public string ActualBook { get; set; }
-        
-        
-        //public string DeletedBy { get; set; } = string.Empty;
-        //public bool IsDeleted { get; set; }
-        //public DateTime? DeletedOn { get; set; }
-        //public DateTime CreatedOn { get; set; }
-        //public DateTime? ModifiedOn { get; set; }
-
-        //public string CreatedBy { get; set; } = string.Empty;
-        //public string ModifiedBy { get; set; } = string.Empty;
-
-
+        public string ActualBook { get; set; }   
+               
         [ForeignKey("Category")]
         //category
         public int CategoryId { get; set; }
-        //public string CategoryName { get; set; }
-
         public Category Category { get; set; }
-
-
-
-        //[NotMapped]
-        //public List<SelectListItem> CatgoryList { get; set; }
-
-        //recommendations
+        public bool IsReserved { get; set; }
 
         public ICollection<Recommendation> Recommendations { get; set; }
         //Author

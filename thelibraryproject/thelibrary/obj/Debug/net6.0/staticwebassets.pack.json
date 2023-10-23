@@ -5,16 +5,8 @@
       "PackagePath": "staticwebassets\\thelibrary.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\wwwroot\\css\\sheet.css",
-      "PackagePath": "staticwebassets\\css\\sheet.css"
-    },
-    {
       "Id": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
-    },
-    {
-      "Id": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\wwwroot\\css\\tailwind.config.js",
-      "PackagePath": "staticwebassets\\css\\tailwind.config.js"
     },
     {
       "Id": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\wwwroot\\favicon.ico",

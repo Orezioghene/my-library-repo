@@ -1,0 +1,11 @@
+﻿@model List<Book>
+
+<h1>Books in @ViewBag.CategoryName</h1>
+
+@foreach (var book in Model)
+{
+    <h3>@Html.ActionLink(book.Title, "Detail", "Book", new { Id = book.Id }, null)</h3>
+    @*<p>Author: @book.Author</p>*@
+    <!-- Display other book information -->
+    <hr />
+}

@@ -11,17 +11,15 @@ namespace thelibrary.Models
 
         public DateTime BorrowDate { get; set; }= DateTime.Now;
         public DateTime ReturnDate { get; set; }
-        public stat BookStatus { get; set; }
-
         //book
         public int BookId { get; set; }
         public Book Book { get; set; }
-
         //user
         public Guid UserId { get; set; }
         public Users User { get; set; }
-        
-       
+        //public bool IsBorrowed { get; set; }
+
+
 
 
 

@@ -56,12 +56,7 @@ namespace thelibrary.Controllers
 
                 _categoryRepository.Add(category);
                 return RedirectToAction("Index");
-            }
-
-       
-
-           
-
+            }      
         }
 
         public async Task<IActionResult> Edit(int Id)
@@ -99,6 +94,27 @@ namespace thelibrary.Controllers
             }
 
         }
-    
+
+        public IActionResult BooksByCategory(int CategoryId)
+        {
+            var booksInCategory = _dbContext.Books
+                .Where(b => b.CategoryId == CategoryId)
+                .ToList();
+
+            var category = _dbContext.Categories.Find(CategoryId);
+
+            if (booksInCategory != null && category != null)
+            {
+                ViewBag.Category = category.Name; // Pass the category name to the view
+                return View();
+            }
+            else
+            {
+                // Handle the case where the category or books are not found
+                return NotFound();
+            }
+        }
+
+
     }
 }

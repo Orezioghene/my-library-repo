@@ -16,9 +16,7 @@ namespace thelibrary.ViewModel
         public string BookSummary { get; set; }
         public IFormFile ActualBook { get; set; }
         public int CategoryId { get;set; }
-
-
-        //public List<SelectListItem> Authors { get; set; }
+        
         public List<int>? AuthorId { get; set; }
        
 

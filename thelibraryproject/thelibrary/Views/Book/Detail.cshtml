@@ -1,1 +1,59 @@
-﻿
+﻿@*@using thelibrary.ViewModel*@
+@model Book
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+  <div class="main-container">    
+      <section class="bg-white space-sm">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 mb-4 mb-sm-0">
+              <img alt="Image" src="@Model.ActualBook" class="rounded img-fluid" />
+            </div>
+            <!--end of col-->
+            <div class="col-lg-4 d-flex flex-column justify-content-between mr-auto ml-auto">
+              <div>
+                <h1 class="mb-2">@Model.Title</h1>
+                <h2 class="lead mb-3">@Model.BookSummary</h2>
+                        <h2 class="lead mb-3">Book Reserved: @Model.IsReserved</h2>
+                 @*<a asp-controller="Review" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-sm btn-outline-secondary">Add Review</a>*@
+                        <a href="@Url.Action("Create", "Review", new { bookId = Model.Id })" class="btn btn-primary">Add Review</a>
+                        <a href="@Url.Action("Reserve", "Book", new { bookId = Model.Id })" class="btn btn-primary">Reserve</a>
+              </div>
+              <div>
+                @foreach (var review in Model.Recommendations)
+                {
+                    <div>
+                        @*<h4>@review.User.Name</h4>*@
+                        <p>@review.UserReview</p>
+                        <hr />
+                    </div>
+                    @*<a asp-controller="Review" asp-action="Create" asp-route-id="@review.Id" class="btn btn-sm btn-outline-secondary">Add Review</a>*@
+                }
+              </div>
+            </div>
+            <!--end of col-->
+          </div>
+          <!--end of row-->
+        </div>
+        <!--end of container-->
+      </section>
+      <!--end of section-->
+      <section class="space-sm">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-12 col-md-8 col-lg-7">
+              <h5 class="mb-4">Category</h5>
+              <article>
+                @Model.Category.Name
+              </article>  
+            </div>
+            <!--end of col-->
+          </div>
+          <!--end of row-->
+        </div>
+        <!--end of container-->
+      </section>
+  </div>

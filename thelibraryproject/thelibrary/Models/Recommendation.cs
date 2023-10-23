@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using thelibrary.ViewModel;
 
 namespace thelibrary.Models
 {
@@ -9,13 +10,13 @@ namespace thelibrary.Models
         public string UserReview { get; set; }
 
         //Book
-        public int BookId { get; set; }        
-        public Book Book { get; set; }
+        public int BookId { get; set; }
+        public Book? Book { get; set; }
 
         //User
-        public Guid UserId { get; set; }        
-        public Users User { get; set; }
-       
+        public Guid UserId { get; set; }
+        public Users? User { get; set; }
+
 
 
 

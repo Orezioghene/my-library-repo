@@ -6,9 +6,18 @@ using thelibrary.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
 using System.Text;
 using System;
 using thelibrary.Models;
+using thelibrary.NewHelpers;
+using Hangfire;
+using Hangfire.SqlServer;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using thelibrary.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +29,7 @@ builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ISeatRepository, SeatRepository>();
 builder.Services.AddScoped<IPhotoService, PhotoService>();
+
 
 
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
@@ -56,20 +66,49 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 
 });
+ void ConfigureServices(IServiceCollection services)
+{
+// Configure Hangfire with SQL Server as the storage backend
+services.AddHangfire(configuration => configuration
+    .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+    .UseSimpleAssemblyNameTypeSerializer()
+    .UseRecommendedSerializerSettings()
+    .UseSqlServerStorage("DefaultConnection"));
+}
+
+ void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    // Configure Hangfire for ASP.NET Core
+    app.UseHangfireDashboard();
+    app.UseHangfireServer();    
+    RecurringJob.AddOrUpdate<BookController>("cancel-expired-reservations",
+            controller => controller.CheckAndCancelExpiredReservations(), Cron.Daily);
+}
+
+//builder.Services.AddIdentity<Users, IdentityRole>()
+//        .AddEntityFrameworkStores<LibraryDbContext>()
+//        .AddDefaultTokenProviders();
+
+builder.Services.AddAuthorization(options =>
+    {
+        options.AddPolicy("AdminOnly", policy => policy.RequireRole("ADMIN"));
+        options.AddPolicy("UserOnly", policy => policy.RequireRole("User"));
+    });
 
 // Adding Authentication
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    
 }).AddJwtBearer(options =>
 {
     options.SaveToken = true;
     options.RequireHttpsMetadata = false;
     options.TokenValidationParameters = new TokenValidationParameters()
     {
-
         ValidateIssuer = false,
         ValidateAudience = false,
         ValidateLifetime = true,
@@ -80,8 +119,9 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.Zero
     };
 });
-           
-        
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -102,5 +142,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+WebHelpers.Configure(app.Services.GetRequiredService<IHttpContextAccessor>());
 app.Run();

@@ -1,0 +1,16 @@
+﻿@model Users
+
+
+<form asp-controller="Book" asp-action="GetUserId" method="post">
+    <input type="text" name="Username" placeholder="Enter username" />
+
+
+    <button type="submit">Get User ID</button>
+</form>
+
+@if (ViewBag.UserId != null)
+{
+    <p>User ID: @ViewBag.UserId</p>
+}
+
+<a asp-controller="Book" asp-action="Index" class="btn btn-sm btn-outline-secondary">Return Home</a>        

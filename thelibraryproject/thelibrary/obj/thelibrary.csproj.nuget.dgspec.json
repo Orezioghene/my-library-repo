@@ -43,7 +43,15 @@
           "dependencies": {
             "CloudinaryDotNet": {
               "target": "Package",
-              "version": "[1.20.0, )"
+              "version": "[1.22.0, )"
+            },
+            "Hangfire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.8.5, )"
+            },
+            "Hangfire.SqlServer": {
+              "target": "Package",
+              "version": "[1.8.5, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -52,10 +60,6 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.14, )"
-            },
-            "Microsoft.AspNetCore.Server.IISIntegration": {
-              "target": "Package",
-              "version": "[2.2.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

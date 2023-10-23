@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JeSrPexI/env+/gpUXuaEt182UMtwTkvsqrlCKMl8lE=",
+  "Hash": "02PMwF5G8aAiUPWCB/xIxH4rAEgROWU14AOoW3moqU0=",
   "Source": "thelibrary",
   "BasePath": "_content/thelibrary",
   "Mode": "Default",
@@ -51,23 +51,6 @@
       "OriginalItemSpec": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\thelibrary.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\wwwroot\\css\\sheet.css",
-      "SourceId": "thelibrary",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\wwwroot\\",
-      "BasePath": "_content/thelibrary",
-      "RelativePath": "css/sheet.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\sheet.css"
-    },
-    {
       "Identity": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\wwwroot\\css\\site.css",
       "SourceId": "thelibrary",
       "SourceType": "Discovered",
@@ -83,23 +66,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\wwwroot\\css\\tailwind.config.js",
-      "SourceId": "thelibrary",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\wwwroot\\",
-      "BasePath": "_content/thelibrary",
-      "RelativePath": "css/tailwind.config.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\tailwind.config.js"
     },
     {
       "Identity": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\wwwroot\\favicon.ico",

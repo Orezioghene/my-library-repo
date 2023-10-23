@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Book>
+
+<h1>Search Results</h1>
+
+@foreach (var book in Model)
+{
+    <h3>@Html.ActionLink(book.Title, "Detail", "Book", new { Id = book.Id }, null)</h3>
+    @*<p>Category: @book.Category.Name</p>*@
+    <!-- Display other book information -->
+    <hr />
+}
