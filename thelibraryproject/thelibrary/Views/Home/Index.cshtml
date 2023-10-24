@@ -78,17 +78,17 @@
         <div class="box">
             <span class="boxs">
                 <div class="icon"><i class="fa-regular fa-user"></i></div>
-                <p>Users</p>
+                <p><a class="nav-link text-dark" asp-area="" asp-controller="Authentication" asp-action="GetUsers">Users</a></p>
             </span>
 
             <span class="boxs">
                 <div class="icon"><i class="fa-solid fa-book"></i></div>
-                <p>Books</p>
+                <p><a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Books</a></p>
             </span>
 
             <span class="boxs">
                 <div class="icon"><i class="fa-solid fa-list"></i></div>
-                <p>Categories</p>
+                <p><a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a></p>
             </span>
 
         </div>
@@ -96,12 +96,12 @@
         <div class="box">
             <span class="boxs">
                 <div class="icon"><i class="fa-solid fa-plus"></i></div>
-                <p>Add books</p>
+                <p><a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Create">Add books</a></p>
             </span>
 
             <span class="boxs">
                 <div class="icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
-                <p>Return books</p>
+                <p><a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Reservations">Borrow</a></p>
             </span>
 
             <span class="boxs">
@@ -109,14 +109,6 @@
                 <p>Admin</p>
             </span>
         </div>
-
-
-
-
     </div>
-
-
-
-
 </body>
 

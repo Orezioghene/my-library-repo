@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
@@ -37,6 +38,11 @@ namespace thelibrary.Controllers
             _dbContext = dbContext;            
             _authenticationService = authenticationService;
 
+        }
+        public async Task<IActionResult> GetUsers()
+        {
+            var users = await _dbContext.Users.ToListAsync();
+            return View(users);
         }
         public async Task<IActionResult> Login()
         {

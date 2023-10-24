@@ -97,22 +97,8 @@ namespace thelibrary.Controllers
 
         public IActionResult BooksByCategory(int CategoryId)
         {
-            var booksInCategory = _dbContext.Books
-                .Where(b => b.CategoryId == CategoryId)
-                .ToList();
-
-            var category = _dbContext.Categories.Find(CategoryId);
-
-            if (booksInCategory != null && category != null)
-            {
-                ViewBag.Category = category.Name; // Pass the category name to the view
-                return View();
-            }
-            else
-            {
-                // Handle the case where the category or books are not found
-                return NotFound();
-            }
+            var category = _dbContext.Categories.Include(c => c.Books).FirstOrDefault(c => c.CategoryId == CategoryId);
+            return View(category);
         }
 
 

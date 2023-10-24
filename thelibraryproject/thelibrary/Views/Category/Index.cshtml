@@ -27,8 +27,8 @@
                             <p class="card-text">@item.Name</p>                            
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a asp-controller="Category" asp-action="BooksByCategory" asp-route-id="@item.CategoryId" class="btn btn-sm btn-outline-secondary">Detail</a>
-
+                                    @*<a asp-controller="Category" asp-action="BooksByCategory" ,new { categoryId = item.CategoryId }, null ,class="btn btn-sm btn-outline-secondary">Detail</a>*@
+                                    <a href="@Url.Action("BooksByCategory", "Category", new { item.CategoryId})" class="btn btn-sm btn-outline-secondary">Deatil</a>
                                     <a asp-controller="Category" asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-sm btn-outline-secondary">Edit</a>
                                     
                                 </div>

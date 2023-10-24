@@ -1,0 +1,11 @@
+﻿@model Category
+
+<h1>Books in @Model.Name</h1>
+
+@foreach (var book in Model.Books)
+{
+    <h3>@Html.ActionLink(book.Title, "Detail", "Book", new { Id = book.Id }, null)</h3>
+    @*<p>Author: @book.BookAuthors</p>*@
+    <!-- Display other book information -->
+    <hr />
+}
