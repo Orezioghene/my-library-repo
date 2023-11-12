@@ -20,6 +20,7 @@ namespace thelibrary.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public bool IsReserved { get; set; }
+        public bool IsBorrowed { get; set; }
 
         public ICollection<Recommendation> Recommendations { get; set; }
         //Author

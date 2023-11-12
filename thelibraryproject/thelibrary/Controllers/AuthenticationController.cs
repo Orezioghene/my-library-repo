@@ -51,11 +51,11 @@ namespace thelibrary.Controllers
         }
         public async Task<IActionResult> Register()
         {
-            var register= new RegisterViewModel();
+            var register=  new RegisterViewModel();
             return View(register);
         }
 
-        [HttpPost("register")]
+        [HttpPost("Authentication/register")]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             var result = await _authenticationService.RegisterUser(model);
@@ -80,9 +80,9 @@ namespace thelibrary.Controllers
                 }
                 else if (User.IsInRole("User"))
                 {
-                    return RedirectToAction("Index", "Book");
+                    return RedirectToAction("UserIndex", "Book");
                 }
-                return RedirectToAction("Index", "Book");
+                return RedirectToAction("UserIndex", "Book");
             }
         }        
     }

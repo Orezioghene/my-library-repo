@@ -1,0 +1,28 @@
+﻿@using thelibrary.Data.enums;
+@using thelibrary.ViewModel;
+@model AuthorViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" placeholder="Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Biography">Biography</label>
+        <input asp-for="Biography" class="form-control" placeholder="Biography">
+        <span asp-validation-for="Biography" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Sex">Sex</label>
+        <select asp-for="Sex" asp-items="@Html.GetEnumSelectList<sex>()" class="form-control" placeholder="Sex">
+            <option>--Select--</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

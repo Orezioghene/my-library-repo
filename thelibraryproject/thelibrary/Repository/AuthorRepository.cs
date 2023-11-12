@@ -45,6 +45,8 @@ namespace thelibrary.Repository
         public async Task<IEnumerable<Author>> GetAuthors()
         {
             return await _dbContext.Authors.ToListAsync();
+
+
         }
 
         public async Task<Author> GetById(int Id)

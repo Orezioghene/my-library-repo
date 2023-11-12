@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Author>
+﻿@model IEnumerable<Category>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -7,8 +7,7 @@
 
 <section class="jumbotron text-center">
     <div class="container">
-        <a asp-controller="Home" asp-action="Index" asp-route-id="" class="btn btn-sm btn-outline-secondary">Back Home</a>
-        <h1 class="jumbotron-heading">Authors</h1>
+        <h1 class="jumbotron-heading">Category</h1>
         @*<p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
         <p>
         <a href="#" class="btn btn-primary my-2">Main call to action</a>
@@ -18,7 +17,6 @@
 </section>
 
 <div class="album py-5 bg-light">
-    <a asp-controller="Author" asp-action="Create" asp-route-id="" class="btn btn-sm btn-outline-secondary">Create Author</a>
     <div class="container">
         <div class="row">
             @foreach (var item in Model)
@@ -29,11 +27,12 @@
                             <p class="card-text">@item.Name</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a asp-controller="Author" asp-action="BookByAuthor" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">View</a>
+                                    @*<a asp-controller="Category" asp-action="BooksByCategory" ,new { categoryId = item.CategoryId }, null ,class="btn btn-sm btn-outline-secondary">Detail</a>*@
+                                    <a href="@Url.Action("BooksByCategory", "Category", new { item.CategoryId})" class="btn btn-sm btn-outline-secondary">Deatil</a>
+                                    @*<a asp-controller="Category" asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-sm btn-outline-secondary">Edit</a>*@
 
-                                    <a asp-controller="Author" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Edit</a>
                                 </div>
-                                <small class="text-muted"></small>
+                                <small class="text-muted">9 mins</small>
                             </div>
                         </div>
                     </div>

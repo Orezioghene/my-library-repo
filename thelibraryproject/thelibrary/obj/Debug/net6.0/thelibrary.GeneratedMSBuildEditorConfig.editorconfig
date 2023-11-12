@@ -28,12 +28,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Author/BookByAuthor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEJvb2tCeUF1dGhvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Author/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Author/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Author/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Author/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXFVzZXJJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Book/Borrow.cshtml]
@@ -72,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xTZWFyY2hSZXN1bHRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Book/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xVc2VySW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Category/BooksByCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQm9va3NCeUNhdGVnb3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -90,6 +106,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Category/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcVXNlckluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pc/Documents/400l/Final year projct/the implementation/thelibraryproject/thelibrary/Views/Home/Index.cshtml]

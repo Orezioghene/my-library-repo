@@ -26,6 +26,12 @@ namespace thelibrary.Controllers
             return View(allCategories);
         }
 
+        public async Task<IActionResult> UserIndex()
+        {
+            var allCategories = await _dbContext.Categories.ToListAsync();
+            return View(allCategories);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAllCategories()
         {

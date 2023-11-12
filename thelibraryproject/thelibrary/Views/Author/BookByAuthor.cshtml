@@ -1,0 +1,13 @@
+﻿@model IEnumerable<BookAuthor>
+
+@*<h1>Books in @Model.</h1>
+*@
+@foreach (var book in Model)
+{
+    
+    @*<h2> </h2>*@
+    <h3>@Html.ActionLink(book.Book.Title, "Detail", "Book", new { Id = book.BookId }, null)</h3>
+    @*<p>Author: @book.BookAuthors</p>*@
+    <!-- Display other book information -->
+    <hr />
+}

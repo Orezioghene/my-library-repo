@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using System.Net;
 using thelibrary.Data;
 using thelibrary.Map;
@@ -38,9 +39,16 @@ namespace thelibrary.Controllers
         {
             
             var data = _bookRepository.GetBooks();
-                return View(data);
-                        
+                return View(data);                      
             
+        }
+
+        public async Task<IActionResult> UserIndex()
+        {
+
+            var data = _bookRepository.GetBooks();
+            return View(data);
+
         }
 
         public IActionResult Search(string searchTerm)
@@ -74,7 +82,7 @@ namespace thelibrary.Controllers
                 }
 
                 return View(); // Return to the same form view
-            ;
+            
         }
         public async Task<IActionResult> Detail(int Id)
         {
@@ -143,7 +151,9 @@ namespace thelibrary.Controllers
             var getBook = await _bookRepository.GetBookById(Id);
             if (getBook == null) return View("Error");
             var categories = await _categoryRepository.GetAllCategories();
+            var authors = await _authorRepository.GetAuthors();
             ViewBag.category = new SelectList(categories.ToList(), "Id", "Name");
+            ViewBag.author = new MultiSelectList(authors.ToList(), "Id", "Name");
             var bookVM = getBook.Mapper();            
             return View(bookVM);
 
@@ -179,21 +189,23 @@ namespace thelibrary.Controllers
                     book.BookSummary = model.BookSummary;
                     book.ActualBook = photoresult.Url.ToString();
                     book.CategoryId = model.CategoryId;
-                    
-                    foreach (var id in model.AuthorId)
+
+                    if(model.AuthorId != null)
                     {
-                        var _book_author = new BookAuthor()
+                        foreach (var id in model.AuthorId)
                         {
-                            BookId = book.Id,
-                            AuthorId = id
-                        };
-                        _dbContext.BookAuthors.Add(_book_author);
-                        _dbContext.SaveChanges();
+                            var _book_author = new BookAuthor()
+                            {
+                                BookId = book.Id,
+                                AuthorId = id
+                            };
+                            _dbContext.BookAuthors.Add(_book_author);
+                            _dbContext.SaveChanges();
+                        }
+
                     }
-
-                    _bookRepository.Update(book);
-
-                  
+                    _dbContext.SaveChanges();
+                    _bookRepository.Update(book);                  
                     return RedirectToAction("Index");
                     }
                 else
@@ -238,17 +250,21 @@ namespace thelibrary.Controllers
             if (book != null && book.IsReserved== true)
             {
 
-                _dbContext.Booksborrowed.Add(new BorrowBook
+                var borrowedbook = new BorrowBook
                 {
                     BookId = borrow.BookId,
                     UserId = reservation.UserId, // Replace with actual user name
                     BorrowDate = DateTime.Now,
-                    ReturnDate = DateTime.Now.AddDays(14) // Example: 14 days borrowing period
-                }
-                );
+                    ReturnDate = DateTime.Now.AddDays(14)
+                };
+
                 book.IsReserved = true;
-                //_dbContext.Booksborrowed.Add(newreservation);
+                book.IsBorrowed = true;
+                _dbContext.Booksborrowed.Add(borrowedbook);  
                 _dbContext.SaveChanges();
+               
+
+               
             }
 
             return RedirectToAction("Index");
@@ -257,13 +273,15 @@ namespace thelibrary.Controllers
         public async Task<IActionResult> Return(BorrowBook borrow)
         {
             var borrowed = await _dbContext.Booksborrowed.FirstOrDefaultAsync(x => x.BookId == borrow.BookId);
+            var book = _dbContext.Books.FirstOrDefault(b => b.Id == borrowed.BookId);
 
-            if (borrowed != null)
+            if (borrowed != null && book.IsBorrowed == true )
             {
-                var book = _dbContext.Books.FirstOrDefault(b => b.Id == borrowed.BookId);
+                
                 if (book != null)
                 {
                     book.IsReserved = false;
+                    book.IsBorrowed = false;
                     //_dbContext.Booksborrowed.Remove(borrow);
                     _dbContext.SaveChanges();
 

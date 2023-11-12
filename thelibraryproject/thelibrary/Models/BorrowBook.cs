@@ -17,7 +17,7 @@ namespace thelibrary.Models
         //user
         public Guid UserId { get; set; }
         public Users User { get; set; }
-        //public bool IsBorrowed { get; set; }
+        
 
 
 

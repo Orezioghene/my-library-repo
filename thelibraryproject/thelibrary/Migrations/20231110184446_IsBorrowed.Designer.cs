@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using thelibrary.Data;
 
@@ -11,9 +12,11 @@ using thelibrary.Data;
 namespace thelibrary.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    partial class LibraryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231110184446_IsBorrowed")]
+    partial class IsBorrowed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,9 +66,6 @@ namespace thelibrary.Migrations
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
-
-                    b.Property<bool>("IsBorrowed")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsReserved")
                         .HasColumnType("bit");
@@ -149,6 +149,9 @@ namespace thelibrary.Migrations
 
                     b.Property<DateTime>("BorrowDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsBorrowed")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("datetime2");
@@ -496,7 +499,7 @@ namespace thelibrary.Migrations
                         new
                         {
                             Id = new Guid("febb742d-f5db-4ca8-b596-59f3640386fd"),
-                            ConcurrencyStamp = "29d391fe637c4334949623af689abfee",
+                            ConcurrencyStamp = "90ebb7e38526490e8e2cc4f2da8acc70",
                             IsInBuilt = true,
                             Name = "ADMIN",
                             NormalizedName = "ADMIN"
@@ -504,7 +507,7 @@ namespace thelibrary.Migrations
                         new
                         {
                             Id = new Guid("9e4d8a66-0c87-4e58-a6f8-0bde16a24321"),
-                            ConcurrencyStamp = "87fd9684214d462ea0f3c3131540e4b5",
+                            ConcurrencyStamp = "81861e170afb41a2a846b43d5e285685",
                             IsInBuilt = true,
                             Name = "USER",
                             NormalizedName = "USER"
@@ -621,14 +624,14 @@ namespace thelibrary.Migrations
                             Id = new Guid("b1c52070-dcfe-44cc-bdda-a2426b817174"),
                             AccessFailedCount = 0,
                             Activated = false,
-                            ConcurrencyStamp = "65739458-2c93-452d-971c-93dd7a19ee21",
-                            CreatedOn = new DateTime(2023, 11, 10, 19, 21, 26, 191, DateTimeKind.Utc).AddTicks(4899),
+                            ConcurrencyStamp = "423e3bc3-4136-42c9-b489-22c9b803453d",
+                            CreatedOn = new DateTime(2023, 11, 10, 18, 44, 45, 927, DateTimeKind.Utc).AddTicks(4696),
                             Email = "orezioghene1@gmail.com",
                             EmailConfirmed = false,
                             IsDeleted = false,
                             IsPasswordDefault = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEHmP11/VLry4YrMFMRSjz6Tt5Pw3U+HyuluRhvMNaztpXHI+zque3GuGYGtrOi5rxw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBTKUaACxVS8dm1xKLM9guUGnPtArTispbwBW2VM8uX2nMYwah/zf8SCoAgTTjMbfA==",
                             PhoneNumber = "07055520420",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "17C89032-4965-4DCF-9DCF-B9F697D88820",
@@ -640,7 +643,7 @@ namespace thelibrary.Migrations
                             Id = new Guid("a51f5dd1-0aaa-4542-9683-12591047e74b"),
                             AccessFailedCount = 0,
                             Activated = true,
-                            ConcurrencyStamp = "95ac4219-db10-440e-8bac-1c7b3a903e46",
+                            ConcurrencyStamp = "4ffc229c-b3db-4115-bd6f-09cbb166ad73",
                             CreatedOn = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "eyiowuawibolutife@gmail.com",
                             EmailConfirmed = true,
@@ -651,7 +654,7 @@ namespace thelibrary.Migrations
                             Name = "Admin",
                             NormalizedEmail = "EYIOWUAWIBOLUTIFE@GMAIL.COM",
                             NormalizedUserName = "EYIOWUAWIBOLUTIFE@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHuQJf6ypzTcuAoIQFrp99IL7ZX0LJFSoy35s3fk1H7zkJ8Na48v5JhbxVCRzqPagg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHwqMWPWwpRoSCOZU+P+xqzJ6fYenwtsA1VtXjqamNvo+HWfRo9A0mSAZn/ajZxkfQ==",
                             PhoneNumber = "07055520448",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "D21796E5-9EE1-4868-B217-C2E94B22CD22",
