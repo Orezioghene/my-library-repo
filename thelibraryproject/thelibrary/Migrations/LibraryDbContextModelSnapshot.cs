@@ -17,10 +17,10 @@ namespace thelibrary.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "6.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("thelibrary.Models.Author", b =>
                 {
@@ -28,7 +28,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Biography")
                         .HasColumnType("nvarchar(max)");
@@ -51,7 +51,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ActualBook")
                         .IsRequired()
@@ -90,7 +90,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
@@ -113,7 +113,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Resrvationid"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Resrvationid"), 1L, 1);
 
                     b.Property<DateTime>("Begins")
                         .HasColumnType("datetime2");
@@ -142,7 +142,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BorrowId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BorrowId"), 1L, 1);
 
                     b.Property<int>("BookId")
                         .HasColumnType("int");
@@ -171,7 +171,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -188,7 +188,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -218,7 +218,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -280,7 +280,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -376,7 +376,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("BookId")
                         .HasColumnType("int");
@@ -403,7 +403,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("position")
                         .IsRequired()
@@ -420,7 +420,7 @@ namespace thelibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("Begins")
                         .HasColumnType("datetime2");
@@ -496,7 +496,7 @@ namespace thelibrary.Migrations
                         new
                         {
                             Id = new Guid("febb742d-f5db-4ca8-b596-59f3640386fd"),
-                            ConcurrencyStamp = "29d391fe637c4334949623af689abfee",
+                            ConcurrencyStamp = "d1b4713297eb4b6082ea5b33dda3ee03",
                             IsInBuilt = true,
                             Name = "ADMIN",
                             NormalizedName = "ADMIN"
@@ -504,7 +504,7 @@ namespace thelibrary.Migrations
                         new
                         {
                             Id = new Guid("9e4d8a66-0c87-4e58-a6f8-0bde16a24321"),
-                            ConcurrencyStamp = "87fd9684214d462ea0f3c3131540e4b5",
+                            ConcurrencyStamp = "6e64cbca9be94e24ab9bf3af1f350a97",
                             IsInBuilt = true,
                             Name = "USER",
                             NormalizedName = "USER"
@@ -621,14 +621,14 @@ namespace thelibrary.Migrations
                             Id = new Guid("b1c52070-dcfe-44cc-bdda-a2426b817174"),
                             AccessFailedCount = 0,
                             Activated = false,
-                            ConcurrencyStamp = "65739458-2c93-452d-971c-93dd7a19ee21",
-                            CreatedOn = new DateTime(2023, 11, 10, 19, 21, 26, 191, DateTimeKind.Utc).AddTicks(4899),
+                            ConcurrencyStamp = "50689435-a9bd-4d00-984c-f3f50619fb79",
+                            CreatedOn = new DateTime(2023, 11, 29, 0, 8, 34, 152, DateTimeKind.Utc).AddTicks(893),
                             Email = "orezioghene1@gmail.com",
                             EmailConfirmed = false,
                             IsDeleted = false,
                             IsPasswordDefault = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEHmP11/VLry4YrMFMRSjz6Tt5Pw3U+HyuluRhvMNaztpXHI+zque3GuGYGtrOi5rxw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAzNqdNKyOhMRjgys/ZViyO9xBW6SGtYRKAX8kmcdwCylh1TgDRJ40x//+YedFYl9w==",
                             PhoneNumber = "07055520420",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "17C89032-4965-4DCF-9DCF-B9F697D88820",
@@ -640,7 +640,7 @@ namespace thelibrary.Migrations
                             Id = new Guid("a51f5dd1-0aaa-4542-9683-12591047e74b"),
                             AccessFailedCount = 0,
                             Activated = true,
-                            ConcurrencyStamp = "95ac4219-db10-440e-8bac-1c7b3a903e46",
+                            ConcurrencyStamp = "57d3b9a9-b8d6-4072-9445-51eef3159e72",
                             CreatedOn = new DateTime(2023, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "eyiowuawibolutife@gmail.com",
                             EmailConfirmed = true,
@@ -651,7 +651,7 @@ namespace thelibrary.Migrations
                             Name = "Admin",
                             NormalizedEmail = "EYIOWUAWIBOLUTIFE@GMAIL.COM",
                             NormalizedUserName = "EYIOWUAWIBOLUTIFE@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHuQJf6ypzTcuAoIQFrp99IL7ZX0LJFSoy35s3fk1H7zkJ8Na48v5JhbxVCRzqPagg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG/C0yuarlrYI0MJH/zAcYuTVZJotmh/o+cMTDOjTZeeX4jbp+dDXyiS3gQeGe/l7w==",
                             PhoneNumber = "07055520448",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "D21796E5-9EE1-4868-B217-C2E94B22CD22",

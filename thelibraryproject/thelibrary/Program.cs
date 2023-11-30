@@ -85,10 +85,6 @@ services.AddHangfire(configuration => configuration
             controller => controller.CheckAndCancelExpiredReservations(), Cron.Daily);
 }
 
-//builder.Services.AddIdentity<Users, IdentityRole>()
-//        .AddEntityFrameworkStores<LibraryDbContext>()
-//        .AddDefaultTokenProviders();
-
 builder.Services.AddAuthorization(options =>
     {
         options.AddPolicy("AdminOnly", policy => policy.RequireRole("ADMIN"));
@@ -125,12 +121,15 @@ builder.Services.AddAuthentication(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+//if (!app.Environment.IsDevelopment())
+//{
+//    app.UseExceptionHandler("/Home/Error");
+//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+//    app.UseHsts();
+//}
+
+app.UseDeveloperExceptionPage();
+app.UseDatabaseErrorPage();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
