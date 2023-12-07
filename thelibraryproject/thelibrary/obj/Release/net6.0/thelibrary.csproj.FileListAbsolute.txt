@@ -95,7 +95,6 @@ C:\Users\pc\Documents\400l\Final year projct\the implementation\thelibraryprojec
 C:\Users\pc\Documents\400l\Final year projct\the implementation\thelibraryproject\thelibrary\bin\Release\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\bin\Release\net6.0\appsettings.json
 C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\bin\Release\net6.0\aws-beanstalk-tools-defaults.json
-C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\bin\Release\net6.0\web.config
 C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\bin\Release\net6.0\appsettings.Development.json
 C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\bin\Release\net6.0\thelibrary.staticwebassets.runtime.json
 C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\bin\Release\net6.0\thelibrary.exe

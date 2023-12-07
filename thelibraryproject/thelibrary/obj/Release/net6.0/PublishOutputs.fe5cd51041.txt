@@ -1,5 +1,4 @@
 C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\obj\Release\net6.0\PubTmp\Out\thelibrary.exe
-C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\obj\Release\net6.0\PubTmp\Out\web.config
 C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\obj\Release\net6.0\PubTmp\Out\appsettings.json
 C:\Users\SOFTWARE DEVELOPER\source\repos\my-library-repo\thelibraryproject\thelibrary\obj\Release\net6.0\PubTmp\Out\aws-beanstalk-tools-defaults.json
