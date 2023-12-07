@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\thelibrary.csproj": {}
+    "C:\\Users\\SOFTWARE DEVELOPER\\source\\repos\\my-library-repo\\thelibraryproject\\thelibrary\\thelibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\thelibrary.csproj": {
+    "C:\\Users\\SOFTWARE DEVELOPER\\source\\repos\\my-library-repo\\thelibraryproject\\thelibrary\\thelibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\thelibrary.csproj",
+        "projectUniqueName": "C:\\Users\\SOFTWARE DEVELOPER\\source\\repos\\my-library-repo\\thelibraryproject\\thelibrary\\thelibrary.csproj",
         "projectName": "thelibrary",
-        "projectPath": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\thelibrary.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Documents\\400l\\Final year projct\\the implementation\\thelibraryproject\\thelibrary\\obj\\",
+        "projectPath": "C:\\Users\\SOFTWARE DEVELOPER\\source\\repos\\my-library-repo\\thelibraryproject\\thelibrary\\thelibrary.csproj",
+        "packagesPath": "C:\\Users\\SOFTWARE DEVELOPER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SOFTWARE DEVELOPER\\source\\repos\\my-library-repo\\thelibraryproject\\thelibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SOFTWARE DEVELOPER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -99,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
